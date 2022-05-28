@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get ('/home', function(req, res, next){
-  res.render ('home',{title1: "Bienvenido"});
+  res.render ('home',{title1: "Bienvenido a Banco Infinity"});
 })
 router.get('/register', (req, res) => {
   res.render(registerRoute);
@@ -25,10 +25,10 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-  const {fullnname, email, Password, confirmP } = req.body;
+  const {Fullnname, Email, Password, confirmP } = req.body;
   
   if (Password === confirmP){
-    if (data.data.find(dat => dat.email === email)) {
+    if (data.data.find(dat => dat.Email === Email)) {
       res.render(registerRoute,{
         message: "El usuario ya esta registrado",
         messageClass: "alert-danger"
@@ -39,12 +39,12 @@ router.post('/register', (req, res) => {
     const hashedPassword = methods.getHashedPassWord(Password);
 
     data.data.push({
-      fullnname,
-      email,
+      Fullnname,
+      Email,
       Password: hashedPassword
     });
   
-    res.render(loginRegister,{
+    res.render(loginRoute,{
       message: "El registro se ha completado",
       messageClass: "alert-success"
     });
@@ -60,11 +60,11 @@ router.post('/register', (req, res) => {
 });
 
 router.post ('/login', (req, res) => {
-  const {email, Password } = req.body;
+  const {Email, Password } = req.body;
   const hashedPassword = methods.getHashedPassWord(Password);
 
   const dataUser = data.data.find(u => {
-    return u.email === email && hashedPassword === u.password;
+    return u.Email === Email && hashedPassword === u.Password;
   });
 
   if (dataUser){

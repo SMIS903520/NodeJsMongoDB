@@ -1,7 +1,7 @@
 const data =[
     {
-        fullname: "Kito",
-        email: "kito@gmail.com" ,
+        Fullname: "chris",
+        Email: "kito@gmail.com" ,
         Password: ""
     }];
     
