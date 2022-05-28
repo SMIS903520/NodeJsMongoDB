@@ -8,11 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const methods = require('./methods');
 const router = require('./routes/index');
+const hbs = require ('hbs');
+
+
+
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname+'/views/partials', function(err){});
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get ('/home', function(req, res, next){
-  res.render ('home',{title1: "Bienvenido a Banco Infinity"});
+  res.render ('home',{title: "Bienvenido a Banco Infinity"});
 })
 router.get('/register', (req, res) => {
   res.render(registerRoute);
