@@ -11,8 +11,6 @@ const router = require('./routes/index');
 const hbs = require ('hbs');
 
 
-
-
 var app = express();
 
 // view engine setup
